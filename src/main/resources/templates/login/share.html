@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Share</title>
+    <link th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/home.css}" rel="stylesheet">
+    </link>
+    <script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+</head>
+
+<body>
+    <div th:fragment="share_contents">
+        <div style="text-align: left; margin: 30px auto; width: 90%;">
+            <h2 style="background-color: #343a40;color: white;padding: 5px;">Question</h2>
+            <form method="POST" th:action="@{/share}" th:object="${shareForm}">
+                <p>
+                    Q1.次のうち、<span style="font-weight: bold;">体内で合成できるアミノ酸を１つ</span>選択してください。
+                </p>
+                <p>
+                    <div th:each="item:${radioItems1}">
+                        <input type="radio" name="selectedRadio" th:value="${item.key}" th:text="${item.value}"
+                            th:field="*{questionRadio[0]}" />
+                    </div>
+                </p>
+
+                <p>
+                    Q2.次の説明から<span style="font-weight: bold;">最も適切なものを１つ</span>選択してください。
+                </p>
+                <p>「総貯蓄量が増えると身体能力が向上し運動中のパフォーマンスに影響を与える物質で、体内に存在するおよそ95%は筋肉中に含まれる。」</p>
+                <p>
+                    <div th:each="item:${radioItems2}">
+                        <input type="radio" name="selectedRadio" th:value="${item.key}" th:text="${item.value}"
+                            th:field="*{questionRadio[1]}" />
+                    </div>
+                </p>
+
+                <p>
+                    Q3.EAAとは必須アミノ酸のことだが、<span style="font-weight: bold;">合計でいくつあるか正しい数字を１つ</span>選択してください。
+                </p>
+                <p>
+                    <div th:each="item:${radioItems3}">
+                        <input type="radio" name="selectedRadio" th:value="${item.key}" th:text="${item.value}"
+                            th:field="*{questionRadio[2]}" />
+                    </div>
+                </p>
+
+                <p>
+                    Q4.次の説明から<span style="font-weight: bold;">最も適切なものを１つ</span>選択してください。
+                </p>
+                <p>「運動中などによく出る男性ホルモンの一種で10~20代にかけて最も多く分泌される。発生元は精巣。」</p>
+                <p>
+                    <div th:each="item:${radioItems4}">
+                        <input type="radio" name="selectedRadio" th:value="${item.key}" th:text="${item.value}"
+                            th:field="*{questionRadio[3]}" />
+                    </div>
+                </p>
+
+
+                <p>
+                    Q5.EAAにも含まれ、分子構造が鎖状に由来する必須アミノ酸の総称として<span style="font-weight: bold;">適切なものを１つ</span>選択してください。
+                </p>
+                <p>
+                    <div th:each="item:${radioItems5}">
+                        <input type="radio" name="selectedRadio" th:value="${item.key}" th:text="${item.value}"
+                            th:field="*{questionRadio[4]}" />
+                    </div>
+                </p>
+
+
+                <p>
+                    Q6.インスリン抵抗性について説明したもので<span style="font-weight: bold;">正しくないものをひとつ</span>選択してください。
+                </p>
+                <p>
+                    <div th:each="item:${radioItems6}">
+                        <input type="radio" name="selectedRadio" th:value="${item.key}" th:text="${item.value}"
+                            th:field="*{questionRadio[5]}" />
+                    </div>
+                </p>
+
+                <p>
+                    Q7.次のうち、<span style="font-weight: bold;">三大神経伝達物質でないものをひとつ</span>選択してください。
+                </p>
+                <p>
+                    <div th:each="item:${radioItems7}">
+                        <input type="radio" name="selectedRadio" th:value="${item.key}" th:text="${item.value}"
+                            th:field="*{questionRadio[6]}" />
+                    </div>
+                </p>
+                <p>
+                    Q8.次のうち、<span style="font-weight: bold;">卵に含まれていないビタミンをひとつ</span>選択してください。
+                </p>
+                <p>
+                    <div th:each="item:${radioItems8}">
+                        <input type="radio" name="selectedRadio" th:value="${item.key}" th:text="${item.value}"
+                            th:field="*{questionRadio[7]}" />
+                    </div>
+                </p>
+                <p>
+                    Q9.次のうち、筋収縮について説明したもので<span style="font-weight: bold;">適当でないものをひとつ</span>選択してください。
+                </p>
+                <p>
+                    <div th:each="item:${radioItems9}">
+                        <input type="radio" name="selectedRadio" th:value="${item.key}" th:text="${item.value}"
+                            th:field="*{questionRadio[8]}" />
+                    </div>
+                </p>
+                <p style="text-align: center; ">
+                    <button type="submit" class="btn btn-dark" style="width: 100%; margin: 20px 0; padding: 15px;">Answer</button>
+                </p>
+
+            </form>
+
+
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

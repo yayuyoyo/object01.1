@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>member</title>
+    <link th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/home.css}" rel="stylesheet"></link>    
+    <script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>    
+</head>
+<body>
+    <div th:fragment="member_contents">
+        <div class="container">
+            <br>
+            <h2 style="background-color:aliceblue; padding: 5px; font-weight: bold; color: #666666; text-align: center;">メンバー</h2>
+            <div>
+                <p>ここにメンバー一覧表示処理予定</p>
+                <table>
+                <tr th:each="member : ${memberList}">
+                    <td th:text="${member.userName}"></td>
+                    <td th:text="${member.password}"></td>
+                    <td th:text="${member.mailAddress}"></td>
+                    <td th:text="${member.birthYear}"></td>
+                    <td th:text="${member.birthMonth}"></td>
+                    <td th:text="${member.birthday}"></td>
+                    <td th:text="${member.gender} ? '男':'女'"></td>
+                </tr>                    
+                </table>
+                <label th:text="'合計：' + ${memberListCount} + 名"></label>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Editor</title>
+    <link th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/home.css}" rel="stylesheet">
+    </link>
+    <script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+</head>
+
+<body>
+    <div th:fragment="record_contents">
+        <div class="container">
+            <br>
+
+            <!-- <form method="POST" th:action="@{/record}" th:object="${recordForm}">
+
+                <table align="center">
+                    <tr>
+                        <th>date</th>
+                    </tr>
+                    <th></th>
+                    <td>
+                        <div>
+                            <select class="form-control" th:field="*{recordYear}">
+                                <option value="">年</option>
+                                <option th:each="items : *{getYears()}" th:value="${items.key}"
+                                    th:text="${items.value}">
+                                </option>
+                            </select>
+                        </div>
+                    </td>
+                    <th></th>
+                    <td>
+                        <div>
+                            <select class="form-control" th:field="*{recordMonth}">
+                                <option value="">月</option>
+                                <option th:each="items : *{getMonths()}" th:value="${items.key}"
+                                    th:text="${items.value}">
+                                </option>
+                            </select>
+                        </div>
+                    </td>
+                    <th></th>
+                    <td>
+                        <div>
+                            <select class="form-control" th:field="*{recordDay}">
+                                <option value="">日</option>
+                                <option th:each="items : *{getDays()}" th:value="${items.key}" th:text="${items.value}">
+                                </option>
+                            </select>
+                        </div>
+                    </td>
+                </table>
+                <div class="recordButton" style="text-align: center; margin: 7px;">
+                    <button type="submit">
+                        日付を記録する
+                    </button>
+                </div>
+
+            </form> -->
+
+            <form method="POST" th:action="@{/record}" th:object="${recordForm}">
+
+                <table align="center">
+                    <tr>
+                        <th>date</th>
+                        <td>
+
+                            <div>
+                                <select class="form-control" th:field="*{recordYear}" required>
+                                    <option value="">year</option>
+                                    <option th:each="item : *{getYear()}" th:value="${item.key}"
+                                        th:text="${item.value}"></option>
+                                </select>
+                            </div>
+
+                        </td>
+
+                        <th></th>
+                        <td>
+                            <select class="form-control" th:field="*{recordMonth}" required>
+                                <option value="">month</option>
+                                <option th:each="item : *{getMonth()}" th:value="${item.key}" th:text="${item.value}">
+                                </option>
+                            </select>
+                        </td>
+                        <th></th>
+                        <td>
+                            <select class="form-control" th:field="*{recordDay}" required>
+                                <option value="">day</option>
+                                <option th:each="item : *{getDay()}" th:value="${item.key}" th:text="${item.value}">
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>weight</th>
+                        <td>
+                            <input type="text" value="" class="form-control" id="form" th:each="item : *{getWeight()}"
+                                th:field="*{recordWeight}" required>
+                            </input>
+                        </td>
+                    </tr>
+                </table>
+                <style>
+                    .recordButton {
+                        margin: 20px 0px;
+                    }
+
+                    .recordButton :hover {
+                        border: solid 2px black;
+                        font-weight: bold;
+                        padding: 5px;
+                        border-radius: 3px;
+                        background: black;
+                        color: white;
+                    }
+
+                    .recordButton button {
+                        cursor: pointer;
+                        border-radius: 3px;
+                        font-weight: bold;
+                        border: solid 2px black;
+                        color: black;
+                        background: white;
+                        text-decoration: none;
+                        padding: 5px;
+                    }
+                </style>
+                <div class="recordButton" style="text-align: center; margin: 7px;">
+                    <button type="submit">
+                        体重を記録する
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

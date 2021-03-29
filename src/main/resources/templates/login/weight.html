@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>weight</title>
+    <link th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/home.css}" rel="stylesheet">
+    </link>
+    <script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+</head>
+
+<body>
+    <div th:fragment="weight_contents">
+        <div class="container">
+            <br>
+            <style>
+                .recordButton {
+                    margin: 20px 0px;
+                }
+
+                .recordButton :hover {
+                    border: solid 2px black;
+                    font-weight: bold;
+                    padding: 5px;
+                    border-radius: 3px;
+                    background: black;
+                    color: white;
+                }
+
+                .recordButton a {
+                    border-radius: 3px;
+                    font-weight: bold;
+                    border: solid 2px black;
+                    color: black;
+                    background: white;
+                    text-decoration: none;
+                    padding: 5px;
+                }
+
+                .deleteButton {
+                    margin: 20px 0px;
+                    float: right;
+                }
+
+                .deleteButton :hover {
+                    border: solid 2px rgb(255, 0, 0);
+                    font-weight: bold;
+                    padding: 5px;
+                    border-radius: 3px;
+                    background: rgb(255, 0, 0);
+                    color: white;
+                }
+
+                .deleteButton button {
+                    border-radius: 3px;
+                    font-weight: bold;
+                    border: solid 2px rgb(255, 0, 0);
+                    color: rgb(255, 0, 0);
+                    background: white;
+                    text-decoration: none;
+                    padding: 5px;
+                }
+            </style>
+            <div style="width: 100%; height: 250px; background-color: rgb(221, 221, 221);">
+                <p style="text-align: center; height: 50%; font-weight:bold; color: gray;">glaff</p>
+            </div>
+            <form method="post" th:action="@{/weight}" th:object="${recordForm}">
+                <div class="deleteButton">
+                    <button type="submit" name="delete">体重を削除する</button>
+                    <!--<a th:href="@{/delete}">体重を削除する</a>-->
+                </div>
+            </form>
+            <div class="recordButton">
+                <a th:href="@{/record}">体重を記録する</a>
+                <!--<a th:href="@{/watch}" id="menu">閲覧(削除予定)</a>-->
+            </div>
+            <label th:text="'合計：' + ${weightListCount} + 日"></label>
+            <table class="table table-dark">
+                <tr>
+                    <th>Date</th>
+                    <th>Weight</th>
+                </tr>
+                <tr th:each="weight : ${weightList}">
+                    <td th:text="${#dates.format(weight.sqlDate, 'yyyy/MM/dd')}"></td>
+                    <!-- <td th:text="${weight.sqlDate}"></td> -->
+                    <!-- <td th:text="${weight.recordYear} +'/'+ ${weight.recordMonth} +'/'+ ${weight.recordDay}"></td> -->
+                    <td th:text="${weight.recordWeight} + kg"></td>
+                    <!--
+                            <td><button class="btn btn-outline-danger btn-sm" type="submit" name="delete">削除する</button></td>
+                        -->
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

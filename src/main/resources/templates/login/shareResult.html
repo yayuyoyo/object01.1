@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ShareResult</title>
+    <link th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/home.css}" rel="stylesheet">
+    </link>
+    <script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+
+</head>
+
+<body>
+    <div th:fragment="shareResult_contents">
+        <style>
+            #as {
+                text-align: center;
+            }
+
+            #ft {
+                font-weight: bold;
+            }
+        </style>
+        <div style="text-align: left; margin: 30px auto; width: 90%;">
+            <h2 style="background-color: #343a40;color: white;padding: 5px;">Result</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>number</th>
+                        <th>answer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="as">1.</td>
+                        <td id="as" th:text="${a01}"></td>
+                    </tr>
+                    <tr>
+                        <td id="as">2.</td>
+                        <td id="as" th:text="${a02}"></td>
+                    </tr>
+                    <tr>
+                        <td id="as">3.</td>
+                        <td id="as" th:text="${a03}"></td>
+                    </tr>
+                    <tr>
+                        <td id="as">4.</td>
+                        <td id="as" th:text="${a04}"></td>
+                    </tr>
+                    <tr>
+                        <td id="as">5.</td>
+                        <td id="as" th:text="${a05}"></td>
+                    </tr>
+                    <tr>
+                        <td id="as">6.</td>
+                        <td id="as" th:text="${a06}"></td>
+                    </tr>
+                    <tr>
+                        <td id="as">7.</td>
+                        <td id="as" th:text="${a07}"></td>
+                    </tr>
+                    <tr>
+                        <td id="as">8.</td>
+                        <td id="as" th:text="${a08}"></td>
+                    </tr>
+                    <tr>
+                        <td id="as">9.</td>
+                        <td id="as" th:text="${a09}"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" id="as"><span style="font-weight: bold;" th:text="${count}"></span>/9</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                <a th:href="@{/share}">back</a>
+            </p>
+            <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#explain" style="width: 100%;">
+                Explanation
+            </button>
+
+            <div id="explain" class="collapse" style="padding: 10px;">
+                Q1.
+                <span id="ft">アルギニン</span>
+                <p>アルギニンは体内で合成できるアミノ酸。バリン・ロイシン・イソロイシンはBCAA。</p>
+                Q2.
+                <span id="ft">クレアチン</span>
+                <p>アルギニン・グリシン・メチオニン3つのアミノ酸によってクレアチンが合成される。</p>
+                Q3.
+                <span id="ft">9</span>
+                <p>BCAA(バリン・ロイシン・イソロイシン) + フェニルアラニン・トリプトファン・ヒスチジン・リジン・スレオニン・メチオニンの計9つ。</p>
+                Q4.
+                <span id="ft">テストステロン</span>
+                <p>エストロゲンとプロゲステロンは女性ホルモン。アブシンはホルモン。</p>
+                Q5.
+                <span id="ft">BCAA</span>
+                <p>NEAA = 非必須アミノ酸。HMB = ロイシンから作られる物質で筋分解と合成を促進すると言われる。ATP = アデノシン3リン酸。体を動かす直接的なエネルギー。</p>
+                Q6.
+                <span id="ft">インスリン抵抗性とはインスリンの量が不足していて効果が発揮できない状態</span>
+                <p>インスリン抵抗性はインスリン量は十分であるが効果が発揮できない状態をいう。運動不足や過食が原因といわれている。インスリン分泌低下は膵臓機能が低下するため。</p>
+                Q7.
+                <span id="ft">エンドルフィン</span>
+                <p>俗にいう脳内麻薬のひとつでランナーズハイなど、気分高揚感をもたらす。</p>
+                Q8.
+                <span id="ft">ビタミンC</span>
+                <p>ビタミンCは唯一卵に含まれていないビタミン。ビタミンA,D,Eは卵に含まれる脂溶性ビタミン。</p>
+                Q9.
+                <span id="ft">筋収縮時にカルシウムイオンが取り込まれる</span>
+                <p>筋弛緩時にカルシウムイオンが取り込まれる。</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

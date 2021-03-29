@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Editor</title>
+    <link th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/home.css}" rel="stylesheet"></link>    
+    <script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>    
+</head>
+<body>
+    <div th:fragment="editor_contents">
+        <div class="container">
+            <br>
+            <h2 style="background-color:aliceblue; padding: 5px; font-weight: bold; color: #666666; text-align: center;">メモ</h2>
+            <div style="margin: 20px;">
+                <textarea class="form-control" placeholder="memo" style="height: 100vh;"></textarea>    
+            </div>            
+        </div>
+
+    </div> 
+
+    
+    
+</body>
+</html>

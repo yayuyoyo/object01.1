@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+    <link th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/signup.css}" rel="stylesheet">
+    </link>
+    <script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
+    </script>
+</head>
+
+<body>
+    <div class="signupFrame">
+        <form method="POST" th:action="@{/signup}" th:object="${signupForm}">
+            <table align="center">
+                <tr>
+                    <th>ユーザ名</th>
+                    <td>
+                        <div th:classappend="${#fields.hasErrors('userName')}?'has-error'">
+                            <input type="text" class="form-control" id="form" th:field="*{userName}"/>
+                            <span class="text-danger" th:if="${#fields.hasErrors('userName')}" 
+                            th:errors="*{userName}">
+                                userName error
+                            </span>
+                       </div>
+                   </td> 
+                </tr>
+                <tr>
+                    <th>パスワード</th>
+                    <td>
+                        <div th:classappend="${#fields.hasErrors('password')}?'has-error'">
+                            <input type="password" class="form-control" id="form" th:field="*{password}" />
+                            <span class="text-danger" th:if="${#fields.hasErrors('password')}" 
+                            th:errors="*{password}">
+                                password error
+                            </span>                            
+                        </div>
+                    </td>
+                </tr>       
+                <tr>
+                    <th>メールアドレス</th>
+                    <td>
+                        <div th:classappend="${#fields.hasErrors('mailAddress')}?'has-error'">
+                            <input type="text" class="form-control" id="form" th:field="*{mailAddress}" />
+                            <span class="text-danger" th:if="${#fields.hasErrors('mailAddress')}" 
+                            th:errors="*{mailAddress}">
+                                mailAddress error
+                            </span>                            
+                        </div>
+                    </td>
+                </tr>
+                <!--
+                <tr>
+                    <th class="">生年月日</th>
+                    <td>
+                        <div th:classappend="${#fields.hasErrors('birthday')}?'has-error'">
+                            <input type="date" class="form-control" id="form" th:field="*{birthday}" />    
+                           <input type="text" class="form-control" placeholder="yyyy/MM/dd" id="form" th:field="*{birthday}" />
+                            <span class="text-danger" th:if="${#fields.hasErrors('birthday')}" 
+                            th:errors="*{birthday}">
+                                birthday error
+                            </span>                        
+                        </div>
+                    </td>
+                </tr>
+                -->
+                <table align="center">
+                    <tr>
+                    <th>生年月日</th>
+                    <td>
+                        <div>
+                            <select class="form-control" th:field = "*{birthYear}">
+                                <option value="">year</option>
+                                <option th:each="item : *{getYear()}"
+                                th:value="${item.key}" th:text = "${item.value}"></option>
+                            </select>                         
+                        </div>
+                    </td> 
+                        <th></th>
+                        <td>
+                        <select class="form-control" th:field = "*{birthMonth}">
+                                <option value="">month</option>
+                                <option th:each="item : *{getMonth()}"
+                                th:value="${item.key}" th:text = "${item.value}"></option>
+                        </select>
+                        </td> 
+                        <th></th>
+                        <td>
+                        <select class="form-control" th:field = "*{birthday}">
+                            <option value="">day</option>
+                            <option th:each="item : *{getDay()}"
+                            th:value="${item.key}" th:text = "${item.value}"></option>
+                        </select>
+                        </td>                     
+                    </tr>      
+                </table>
+                 
+               <table align="center">
+                    <tr>
+                        <th class="">性別</th>
+                        <td>
+                            <div class="form-check form-check-inline" th:each="item:${radioGender}">
+                                <input type="radio" name="radioGender"
+                                th:text="${item.key}" th:value="${item.value}" id="form" th:field="*{gender}"/>
+                            </div>                           
+                        </td>
+                    </tr>                   
+               </table>   
+
+            </table>
+        <!--
+            <ul>
+                <li th:each="error:${#fields.detailedErrors()}">
+                    <span th:text="${error.message}">Error Message</span>
+                </li>
+            </ul>     
+        -->        
+            <div class="signUpButton">
+                <button class="btn btn-primary" type="submit">
+                    登録する
+                </button>                
+            </div>
+            <div style="text-align: center; margin-top: 7px;">
+               <a th:href="@{/login}" class="btn btn-secondary btn-sm">戻る</a>                    
+            </div>
+        
+        </form>
+    </div>
+   
+    
+</body>
+</html>

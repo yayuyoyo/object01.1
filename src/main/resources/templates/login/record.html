@@ -16,53 +16,6 @@
         <div class="container">
             <br>
 
-            <!-- <form method="POST" th:action="@{/record}" th:object="${recordForm}">
-
-                <table align="center">
-                    <tr>
-                        <th>date</th>
-                    </tr>
-                    <th></th>
-                    <td>
-                        <div>
-                            <select class="form-control" th:field="*{recordYear}">
-                                <option value="">年</option>
-                                <option th:each="items : *{getYears()}" th:value="${items.key}"
-                                    th:text="${items.value}">
-                                </option>
-                            </select>
-                        </div>
-                    </td>
-                    <th></th>
-                    <td>
-                        <div>
-                            <select class="form-control" th:field="*{recordMonth}">
-                                <option value="">月</option>
-                                <option th:each="items : *{getMonths()}" th:value="${items.key}"
-                                    th:text="${items.value}">
-                                </option>
-                            </select>
-                        </div>
-                    </td>
-                    <th></th>
-                    <td>
-                        <div>
-                            <select class="form-control" th:field="*{recordDay}">
-                                <option value="">日</option>
-                                <option th:each="items : *{getDays()}" th:value="${items.key}" th:text="${items.value}">
-                                </option>
-                            </select>
-                        </div>
-                    </td>
-                </table>
-                <div class="recordButton" style="text-align: center; margin: 7px;">
-                    <button type="submit">
-                        日付を記録する
-                    </button>
-                </div>
-
-            </form> -->
-
             <form method="POST" th:action="@{/record}" th:object="${recordForm}">
 
                 <table align="center">
@@ -140,9 +93,6 @@
 
         </div>
     </div>
-
-
-
 </body>
 
 </html>

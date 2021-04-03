@@ -33,7 +33,7 @@ public class RecordController {
 		if (bindingResult.hasErrors()) {
 			return getRecord(recordForm, model);
 		}
-		System.out.println("recordFormの中身を確認 → \n" + recordForm);
+		System.out.println("recordFormの中身を確認 → \n" + recordForm + "カウント数：" + weightService.count());
 
 		boolean result = weightService.insert(recordForm);
 		if (result == true) {

@@ -1,12 +1,12 @@
 package com.example.demo.login.domain.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.login.domain.model.Record;
 import com.example.demo.login.domain.model.RecordForm;
 import com.example.demo.login.domain.repository.WeightDao;
 
@@ -22,23 +22,6 @@ public class WeightService {
 
 		return result;
 	}
-	
-	public boolean inserts(RecordForm recordForm) {
-		int rowNumber = dao.insertOne(recordForm);
-		boolean result = false;
-		if (rowNumber > 0) {
-			result = true;
-		}
-
-		return result;
-	}
-
-	/*
-	 * public boolean insert(Record record) { int rowNumber = dao.insertOne(record);
-	 * boolean result = false; if (rowNumber > 0) { result = true; }
-	 * 
-	 * return result; }
-	 */
 
 	@Autowired
 	@Qualifier("WeightDaoJdbcImpl")
@@ -61,9 +44,21 @@ public class WeightService {
 
 	}
 
-	public boolean deleteOne(String recordYear) {
+	public boolean deleteAll(Date recordDate) {
 
-		int rowNumber = dao.deleteOne(recordYear);
+		int rowNumber = dao.deleteAll(recordDate);
+
+		boolean result = false;
+
+		if (rowNumber > 0) {
+			result = true;
+		}
+		return result;
+	}
+
+	public boolean deleteOne(int recordId) {
+
+		int rowNumber = dao.deleteOne(recordId);
 
 		boolean result = false;
 
